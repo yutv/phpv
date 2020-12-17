@@ -17,7 +17,7 @@ else
     done
 
     if [ -f "$htaccessFile" ] ; then
-        php=$(cat "$htaccessFile" | grep 'SetHandler' | grep "proxy:fcgi:\/\/php*" | head -n 1 | grep -oP 'php[\d]+')
+        php=$(cat "$htaccessFile" | grep 'SetHandler' | grep "proxy:fcgi:\/\/php*" | head -n 1 | grep -oP 'php[\d\.]+')
         if [ -z "$php" ] ; then
             php=$(cat "$htaccessFile" | grep 'x-httpd-php' | head -n 1 | grep -oP 'php[\d]+')
         fi
